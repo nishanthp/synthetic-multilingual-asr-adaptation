@@ -1,0 +1,3 @@
+git add .github
+git commit -m "Add CI pipelines for formatter and build"
+git push origin main
