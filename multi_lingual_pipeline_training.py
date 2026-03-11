@@ -14,7 +14,9 @@ RUN_TTS      = True
 RUN_ASR      = True       # requires faster-whisper; auto-skips if not available
 
 # ------------------ PATHS & CONFIG ------------------
-BASE_OUT = "/kaggle/working"
+# BASE_OUT = "/kaggle/working"
+BASE_OUT = "./lab_output"
+
 OUTPUT_ROOT = f"{BASE_OUT}/tts_outputs"
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
