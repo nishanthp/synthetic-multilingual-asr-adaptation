@@ -1,8 +1,7 @@
 datasets>=2.18.0
-TTS>=0.22.0
+qwen_tts
 torch>=2.0.0
 torchaudio>=2.0.0
 numpy
 soundfile
 tqdm
-
