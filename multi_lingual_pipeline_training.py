@@ -1,8 +1,8 @@
 # === Multilingual pipeline: Build -> TTS (XTTS) -> ASR (optional) ===
 # Languages: EN, ES, FR
 # Outputs:
-#   TTS wavs: /kaggle/working/tts_outputs/<lang>/*.wav
-#   TTS manifest: /kaggle/working/tts_outputs/<lang>/manifest.jsonl
+#   TTS wavs: <workspace>/tts_outputs/<lang>/*.wav
+#   TTS manifest: <workspace>/tts_outputs/<lang>/manifest.jsonl
 #   (Optional) WER/CER summary
 
 import os, re, time, json, glob, random, subprocess, sys
@@ -14,15 +14,15 @@ RUN_TTS      = True
 RUN_ASR      = True       # requires faster-whisper; auto-skips if not available
 
 # ------------------ PATHS & CONFIG ------------------
-BASE_OUT = "/kaggle/working"
-OUTPUT_ROOT = f"{BASE_OUT}/tts_outputs"
+BASE_OUT = os.path.dirname(os.path.abspath(__file__))
+OUTPUT_ROOT = os.path.join(BASE_OUT, "tts_outputs")
 os.makedirs(OUTPUT_ROOT, exist_ok=True)
 
 # Saved dataset dirs we will USE (created by builders or already present)
 DATASET_DIRS: Dict[str, List[str]] = {
-    "en": [f"{BASE_OUT}/tts_input_en_0p25h_ds", f"{BASE_OUT}/mls_en_0p1h_ds"],
-    "es": [f"{BASE_OUT}/mls_es_0p1h_ds"],
-    "fr": [f"{BASE_OUT}/mls_fr_0p1h_ds"],
+    "en": [os.path.join(BASE_OUT, "data_en_audio", "tts_input_en_0p25h_ds")],
+    "es": [],
+    "fr": [],
 }
 
 LANGS = ["en", "es", "fr"]

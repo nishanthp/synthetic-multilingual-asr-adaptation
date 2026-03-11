@@ -3,8 +3,8 @@ import os, time, shutil
 import soundfile as sf
 from datasets import load_dataset, Dataset, Audio
 
-BASE_OUT     = "/kaggle/working"
-MIN_FREE_MB  = 1500
+BASE_OUT     = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data_en_audio")
+MIN_FREE_MB  = 500
 OVERWRITE    = True
 
 # Targets / limits
@@ -18,8 +18,8 @@ WAV_SUBTYPE  = "PCM_16"
 
 os.makedirs(BASE_OUT, exist_ok=True)
 
-def free_mb(path="/kaggle"):
-    t,u,f = shutil.disk_usage(path)
+def free_mb(path=BASE_OUT):
+    t,u,f = shutil.disk_usage(os.path.splitdrive(path)[0] or path)
     return f // (2**20)
 
 def en_builder():

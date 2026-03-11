@@ -1,0 +1,15 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "audio": {
+      "_type": "Audio"
+    },
+    "text": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}
