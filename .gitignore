@@ -1,0 +1,33 @@
+# Virtual environments
+.venv/
+.venv311/
+venv/
+env/
+
+# Python cache/build
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Local outputs / large generated files
+/kaggle/
+/outputs/
+/tts_outputs/
+*.wav
+*.flac
+*.mp3
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Hugging Face / model caches (if local inside repo)
+.cache/
