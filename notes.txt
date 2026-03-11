@@ -1,0 +1,14 @@
+Downloaded sample speech datasets (english/french/spanish downloader scripts).
+Created an input list (manifest.jsonl) telling the ASR script which audio files + reference text to use.
+Ran Whisper to transcribe each clip.
+Compared Whisper output to ground truth using:
+WER (word error rate)
+CER (character error rate)
+Got summary metrics:
+WER ~ 0.205 (about 20% words wrong)
+CER ~ 0.092 (about 9% characters wrong)
+Why this matters:
+
+You are measuring “how good ASR is” on this dataset.
+Lower WER/CER = better ASR.
+This is exactly evaluation work, not model training.
